@@ -11,5 +11,6 @@
 
 char **get_input(void);
 void handel_signal(int signal);
+extern char **environ;
 
 #endif
