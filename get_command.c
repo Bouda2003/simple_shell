@@ -4,6 +4,7 @@
  *		arg to be excuted
  * Return: the first argument that must be excuted
  */
+#define MAX_ARGS 5
 char **get_input()
 {
 	char *buffer = malloc(MAX_COMMAND_LENGTH * sizeof(char));
@@ -33,7 +34,7 @@ char **get_input()
 		token = strtok(NULL, " ");
 	}
 	if (token != NULL)
-		fprintf(stderr, "too many arguments\n");
+		perror("too many arguments");
 	free(args);
 	free(buffer);
 	return (args);

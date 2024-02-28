@@ -7,7 +7,9 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <signal.h>
 
 char **get_input(void);
+void handel_signal(int signal);
 
 #endif

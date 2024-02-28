@@ -1,12 +1,22 @@
 #include "shell.h"
 /**
- * main - function to create a child process
+ * main - function that creates child
+ * Dsignal - ctrl + d
+ * Description: it supose to work
  * Return: 0
  */
 char **get_input(void);
 
+void handel_signal(int signal)
+{
+	printf("\nExiting shell....\n");
+	exit(0);
+}
+
 int main(void)
 {
+	signal(SIGINT, handel_signal);
+
 	while (1)
 	{
 		char **args = get_input();
@@ -14,7 +24,6 @@ int main(void)
 		if (args == NULL)
 		{
 			perror("there no arguments located");
-			continue;
 		}
 
 		pid_t pid = fork();
@@ -42,6 +51,9 @@ int main(void)
 		free(args[i]);
 		}
 	free(args);
+		}
+		printf("$ ");
+		fflush(stdout);
 	}
+	return (0);
 }
-return (0);
