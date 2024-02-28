@@ -8,6 +8,6 @@
 #include <sys/wait.h>
 #include <string.h>
 
-char *get_input();
+char *get_input(void);
 
 #endif

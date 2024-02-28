@@ -16,11 +16,14 @@ char *get_input()
 
 	printf("$ ");
 	fgets(buffer, MAX_COMMAND_LENGTH, stdin);
+	char **args = malloc(MAX_ARGS * sizeof(char *));
+	int i = 0;
+	char *token = strtok(buffer, " ");
 
-	buffer[strcspn(buffer, "\n")] = '\0';
-	char *space_finder = strchr(buffer, ' ');
-
-	if (space_finder != NULL)
-		*space_finder = '\0';
-	return (buffer);
+	while (token != NULL && i < MAX_ARGS)
+	{
+		args[i++] = token;
+		token = strtok(NULL, " ");
+	}
+	return (args);
 }
