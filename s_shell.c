@@ -30,8 +30,10 @@ int main(void)
 		}
 		else if (pid == 0)
 		{
-			char *args[] = {command, NULL};
+			char *args[2];
 
+			args[0] = command;
+			args[1] = NULL;
 			execve(command, args, environ);
 			perror(command);
 			exit(1);
