@@ -4,7 +4,7 @@
  *		arg to be excuted
  * Return: the first argument that must be excuted
  */
-char *get_input()
+char **get_input()
 {
 	char *buffer = malloc(MAX_COMMAND_LENGTH * sizeof(char));
 
